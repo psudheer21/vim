@@ -1,0 +1,38 @@
+" Vundle plugins
+
+" File navigation
+Bundle 'scrooloose/nerdtree'
+Bundle 'tyok/ack.vim'
+Bundle 'vim-scripts/nerdtree-ack'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+
+" PHP
+Bundle 'Shougo/vimproc'
+Bundle 'm2mdas/phpcomplete-extended'
+Bundle 'm2mdas/phpcomplete-extended-symfony'
+Bundle 'stephpy/vim-phpdoc'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/nerdcommenter'
+Bundle "joonty/vdebug"
+
+" Snippets
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'motanelu/ZF-snippets'
+
+" Edit
+Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-surround'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'osyo-manga/vim-over'
+
+" Misc
+Bundle 'xolox/vim-misc'
+Bundle 'bling/vim-airline'
+Bundle 'xolox/vim-session'
+Bundle 'Keithbsmiley/gist.vim'
+Bundle 'wesQ3/vim-windowswap'
