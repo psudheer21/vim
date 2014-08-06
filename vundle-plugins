@@ -29,6 +29,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'osyo-manga/vim-over'
+Bundle 'tommcdo/exchange.vim'
 
 " Misc
 Bundle 'xolox/vim-misc'
