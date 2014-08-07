@@ -39,6 +39,8 @@ set showcmd
 " ALT + arrow to switch tabs
 noremap <A-Right> :tabnext<CR> 
 noremap <A-Left> :tabprevious<CR> 
+noremap ˙ :tabprevious<CR>  
+noremap ¬ :tabnext<CR> 
 
 " Highlight problematic whitespace
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
