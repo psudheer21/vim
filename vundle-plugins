@@ -32,6 +32,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'osyo-manga/vim-over'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'mbbill/undotree'
+Bundle 'Townk/vim-autoclose'
 
 " Misc
 Bundle 'xolox/vim-misc'
