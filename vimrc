@@ -212,3 +212,5 @@ nmap <leader>t :TagbarToggle<CR>
 " map undo tree
 nmap <leader>r :UndotreeToggle<cr> 
 
+" exclude list for the line numbers plugin
+let g:numbers_exclude = ['tagbar', 'undotree', 'nerdtree']

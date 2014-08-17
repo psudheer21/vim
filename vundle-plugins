@@ -33,6 +33,7 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'mbbill/undotree'
 Bundle 'Townk/vim-autoclose'
+Bundle 'myusuf3/numbers.vim'
 
 " Misc
 Bundle 'xolox/vim-misc'
