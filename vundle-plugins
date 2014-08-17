@@ -14,7 +14,8 @@ Bundle 'm2mdas/phpcomplete-extended-symfony'
 Bundle 'stephpy/vim-phpdoc'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdcommenter'
-Bundle "joonty/vdebug"
+Bundle 'joonty/vdebug'
+Bundle 'majutsushi/tagbar'
 
 " Snippets
 Bundle 'SirVer/ultisnips'
