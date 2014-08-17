@@ -31,6 +31,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'osyo-manga/vim-over'
 Bundle 'tommcdo/vim-exchange'
+Bundle 'mbbill/undotree'
 
 " Misc
 Bundle 'xolox/vim-misc'

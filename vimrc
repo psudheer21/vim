@@ -119,6 +119,10 @@ set lines=40                    " 40 lines instead of 24
 set cot+=menuone
 set nobackup                    " no backup - use git like a normal person
 set noswapfile                  " no swap file
+set undofile                    " Save undo's after file closes
+set undodir=$HOME/.vim/undo     " where to save undo histories
+set undolevels=1000             " How many undos
+set undoreload=10000            " number of lines to save for undo
 
 " Remove whitespace on close
 autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
@@ -202,4 +206,9 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" map tagbar
 nmap <leader>t :TagbarToggle<CR>
+
+" map undo tree
+nmap <leader>r :UndotreeToggle<cr> 
+
