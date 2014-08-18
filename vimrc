@@ -209,8 +209,21 @@ imap <right> <nop>
 " map tagbar
 nmap <leader>t :TagbarToggle<CR>
 
+" configure tagbar to not show variables
+let g:tagbar_type_php  = {
+    \ 'ctagstype' : 'php',
+    \ 'kinds'     : [
+        \ 'i:interfaces',
+        \ 'c:classes',
+        \ 'd:constant definitions',
+        \ 'f:functions',
+        \ 'j:javascript functions:1'
+    \ ]
+\ }
+
 " map undo tree
 nmap <leader>r :UndotreeToggle<cr> 
 
 " exclude list for the line numbers plugin
 let g:numbers_exclude = ['tagbar', 'undotree', 'nerdtree']
+
