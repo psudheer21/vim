@@ -3,7 +3,7 @@
 " File navigation
 Bundle 'scrooloose/nerdtree'
 Bundle 'tyok/ack.vim'
-Bundle 'vim-scripts/nerdtree-ack'
+Bundle 'tyok/nerdtree-ack'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 
@@ -34,6 +34,7 @@ Bundle 'tommcdo/vim-exchange'
 Bundle 'mbbill/undotree'
 Bundle 'Townk/vim-autoclose'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'tpope/vim-repeat'
 
 " Misc
 Bundle 'xolox/vim-misc'
