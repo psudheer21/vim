@@ -32,7 +32,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'osyo-manga/vim-over'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'mbbill/undotree'
-Bundle 'Townk/vim-autoclose'
+Bundle 'Raimondi/delimitMate'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'tpope/vim-repeat'
 
