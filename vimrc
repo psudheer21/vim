@@ -227,3 +227,5 @@ nmap <leader>r :UndotreeToggle<cr>
 " exclude list for the line numbers plugin
 let g:numbers_exclude = ['tagbar', 'undotree', 'nerdtree']
 
+" fix escape issue with YouCompleteMe & vim-autoclose (https://github.com/Valloric/YouCompleteMe/issues/9)
+let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
