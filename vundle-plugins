@@ -9,6 +9,7 @@ Bundle 'tacahiroy/ctrlp-funky'
 
 " PHP
 Bundle 'Shougo/vimproc'
+Bundle 'Shougo/unite.vim'
 Bundle 'm2mdas/phpcomplete-extended'
 Bundle 'm2mdas/phpcomplete-extended-symfony'
 Bundle 'stephpy/vim-phpdoc'
