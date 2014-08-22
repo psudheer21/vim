@@ -229,3 +229,11 @@ let g:numbers_exclude = ['tagbar', 'undotree', 'nerdtree']
 
 " fix escape issue with YouCompleteMe & vim-autoclose (https://github.com/Valloric/YouCompleteMe/issues/9)
 let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+
+function! Multiple_cursors_before()
+    let g:ycm_auto_trigger = 0
+endfunction
+
+function! Multiple_cursors_after()
+    let g:ycm_auto_trigger = 1
+endfunction
