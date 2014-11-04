@@ -36,10 +36,12 @@ Bundle 'mbbill/undotree'
 Bundle 'Raimondi/delimitMate'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'tpope/vim-repeat'
+Bundle 'kien/rainbow_parentheses.vim'
 
 " Misc
 Bundle 'xolox/vim-misc'
 Bundle 'bling/vim-airline'
-Bundle 'xolox/vim-session'
 Bundle 'Keithbsmiley/gist.vim'
 Bundle 'wesQ3/vim-windowswap'
+Bundle 'scrooloose/syntastic'
+Bundle 'craigemery/vim-autotag'
