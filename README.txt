@@ -10,10 +10,11 @@ License: LGPL
 Intro
 =====
 
-This is a configuration aimed at maximising productivity when developing with PHP. I know
-that there are a lot of "ultimate" vim configurations out there, but I believe vim's true
-strength to be its ability to be customised according to one's own needs. Try to use this 
-configuration as a starting in building your own "ultimate" configuration.
+This is a configuration aimed at maximising productivity when developing with
+PHP. I know that there are a lot of "ultimate" vim configurations out there, 
+but I believe vim's true strength to be its ability to be customised according 
+to one's own needs. Try to use this configuration as a starting in building your 
+own "ultimate" configuration.
 
 For suggestions on how to improve it or cool modules, please hit me up at 
 hello@tudorbarbu.ninja.
