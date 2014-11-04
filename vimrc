@@ -127,7 +127,9 @@ set undoreload=10000            " number of lines to save for undo
 " Remove whitespace on close
 autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
-nnoremap Y y$
+" Yank 'till the end of the line
+nnoremap Y y$ 
+ " Find merge conflict marker
 map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 " Visual shifting (does not exit Visual mode)
@@ -159,10 +161,6 @@ function! StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 
-" auto-(save|load) the session without asking
-let g:session_autoload = 'yes'
-let g:session_autosave = 'yes'
-
 " Tabularize 
 nmap <Leader>a=  :Tabularize /=<CR>
 vmap <Leader>a=  :Tabularize /=<CR>
@@ -170,6 +168,8 @@ nmap <Leader>a=> :Tabularize /=><CR>
 vmap <Leader>a=> :Tabularize /=><CR>
 nmap <Leader>a:  :Tabularize /:<CR>
 vmap <Leader>a:  :Tabularize /:<CR>
+nmap <Leader>a:: :Tabularize /:\zs<CR>
+vmap <Leader>a:: :Tabularize /:\zs<CR>
 
 " Vdebug config
 " Key config ripped from http://thorpesystems.com/blog/debugging-php-in-vim/
@@ -188,7 +188,6 @@ let g:vdebug_keymap = {
 let g:vdebug_options = {
     \    "break_on_open" : 0,
     \}
-
 
 " Custom composer command
 let g:phpcomplete_index_composer_command = '/usr/local/bin/composer'
@@ -221,6 +220,9 @@ let g:tagbar_type_php  = {
     \ ]
 \ }
 
+" auto open tagbar
+autocmd VimEnter * nested :TagbarOpen
+
 " map undo tree
 nmap <leader>r :UndotreeToggle<cr> 
 
@@ -241,3 +243,10 @@ endfunction
 
 " select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+let g:over_enable_auto_nohlsearch = 1
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
