@@ -56,7 +56,6 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php        set omnifunc=phpcomplete_extended#CompletePHP
 
 " PHP specials (next/previous variable)
 noremap L f$ 
@@ -250,3 +249,34 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Eclim configuration
+let g:EclimCompletionMethod = 'omnifunc'
+
+" colors
+set background=dark
+colorscheme solarized
+
+syntax on
+set title
+set nocompatible
+set number
+set backspace=start,indent,eol
+set smartindent
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+set autochdir
+set incsearch
+set ignorecase
+set smartcase
+set ls=2
+set ruler
+set showtabline=2
+set formatoptions=qroct
+set showcmd
+
+" Highlight problematic whitespace
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
