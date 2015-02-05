@@ -211,8 +211,8 @@ let g:vdebug_keymap = {
     \    "step_out"       : "<Leader><Right>",
     \    "close"          : "q",
     \    "detach"         : "x",
-    \    "sspellchcket_breakpoint" : "<Leader>p",
-    \    "eval_visual"    : "<Leader>e"
+    \    "eval_visual"    : "<Leader>e",
+    \    "sspellchcket_breakpoint" : "<Leader>p"
 \}
 
 let g:vdebug_options = {
@@ -243,6 +243,9 @@ nnoremap <C-H> <C-W><C-H>
 " using tabs
 noremap tn :tabnew<cr>      " tn to open a new tab
 noremap tc :tabclose<cr>    " tc to close the current tab
+noremap ¬ :tabnext<cr>      " ALT + l next tab
+noremap ˙ :tabprevious<cr>  " ALT + h previous tab
+noremap to :tabonly<cr>     " close all other tabs
 
 " Better colors for EasyMotion
 hi link EasyMotionTarget ErrorMsg
@@ -278,7 +281,7 @@ imap <left> <nop>
 imap <right> <nop>
 
 " php code fixer
-let g:php_cs_fixer_level    = "symfony"      " which level ?
+let g:php_cs_fixer_level    = "symfony"  " which level ?
 let g:php_cs_fixer_config   = "default"  " configuration
 let g:php_cs_fixer_php_path = "php"      " Path to PHP
 let g:php_cs_fixer_verbose  = 1          " Return the output of
