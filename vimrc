@@ -18,7 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 
 source ~/.vim/vundle-plugins
 
-call vundle#end()            
+call vundle#end()
 filetype plugin indent on
 
 " eof Vundle
@@ -26,77 +26,10 @@ filetype plugin indent on
 " Remap the leader to something more comfortable
 let mapleader=","
 
-" Check syntax when saving a buffer
-autocmd BufWritePost *.php !php -d display_errors=on -l <afile> 
-autocmd BufWritePost *.inc !php -d display_errors=on -l <afile>
-autocmd BufWritePost *.phtml !php -d display_errors=on -l <afile>
-autocmd BufWritePost *.thtml !php -d display_errors=on -l <afile>
-autocmd BufWritePost *.ctp !php -d display_errors=on -l <afile>
-autocmd BufWritePost *httpd*.conf !/etc/rc.d/init.d/httpd configtest
-autocmd BufWritePost *.bash !bash -n <afile>
-autocmd BufWritePost *.sh !bash -n <afile>
-autocmd BufWritePost *.pl !perl -c <afile>
-autocmd BufWritePost *.perl !perl -c <afile>
-autocmd BufWritePost *.xml !xmllint --noout <afile>
-autocmd BufWritePost *.xsl !xmllint --noout <afile>
-autocmd BufWritePost *.js !~/jslint/jsl -conf ~/jslint/jsl.default.conf -nologo -nosummary -process <afile>
-autocmd BufWritePost *.rb !ruby -c <afile>
-autocmd BufWritePost *.py !python -c "import py_compile; py_compile.compile(r'<afile>')"
+" turn syntax dection on
+syntax on
 
-" Detect file types
-autocmd BufRead,BufNewFile *httpd*.conf setfiletype apache "Apache config files
-autocmd BufRead,BufNewFile .htaccess    setfiletype apache "htaccess files
-autocmd BufRead,BufNewFile *inc         setfiletype php "PHP include files
-autocmd BufRead,BufNewFile *phtml       setfiletype php "Zend framework templates
-autocmd BufRead,BufNewFile *thtml       setfiletype php "CakePHP templates
-autocmd BufRead,BufNewFile *ctp         setfiletype php "CakePHP templates
-
-autocmd FileType python     set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
-
-" PHP specials (next/previous variable)
-noremap L f$ 
-noremap H F$
-
-" Force the ZF filetype for PHP files
-autocmd FileType php set ft=php.zf
-"
-" Force the django filetype for python files
-autocmd FileType python set ft=python.django
-
-" Avoid typos
-noremap :W :w
-noremap :Q :q
-
-" Kill sounds
-set vb
-
-" php documentor
-inoremap <C-o> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-o> :call PhpDocSingle()<CR>
-vnoremap <C-o> :call PhpDocRange()<CR> 
-
-" Configure CtrlP
-let g:ctrlp_working_path_mode = 'r'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-" Awesome autocomplete
-let g:ycm_min_num_of_chars_for_completion               = 2
-let g:ycm_auto_trigger                                  = 1
-let g:ycm_collect_identifiers_from_tags_files           = 1
-let g:ycm_autoclose_preview_window_after_completion     = 1
-let g:ycm_autoclose_preview_window_after_insertion      = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-
-
-let g:ctrlp_extensions = ['funky']
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-
+" Generic config
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
 set nu                          " Line numbers on
@@ -111,24 +44,121 @@ set wildmode=list:longest,full  " Command <Tab> completion, list matches, then l
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
-set foldenable                  " Auto fold code
-set list
-set guioptions-=T               "Remove the toolbar   
-set lines=40                    " 40 lines instead of 24
-set cot+=menuone
+set list                        " Show problematic spaces
+set guioptions-=T               " Remove the toolbar
 set nobackup                    " no backup - use git like a normal person
 set noswapfile                  " no swap file
-set undofile                    " Save undo's after file closes
-set undodir=$HOME/.vim/undo     " where to save undo histories
-set undolevels=1000             " How many undos
-set undoreload=10000            " number of lines to save for undo
+set splitbelow                  " horizontal windows always split below
+set splitright                  " vertical windows always split right
+set completeopt-=preview
+set title                       " show window title
+set autoindent                  " autoindent when pressing Enter
+set background=dark             " use a dark scheme
+set tabstop=4                   " use 4 spaces for tabs
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autochdir
+set incsearch
+set ignorecase
+set smartcase
+set ls=2
+set ruler
+set showtabline=2
+set formatoptions=qroct
+set showcmd
+set mouse=a                     " allow mouse usage for all modes (a)
+set spelllang=en_us             " current language
+set cursorline                  " highlight the current line
+set fileformat=unix             " unix file format by default
+set fileformats=unix,dos,mac    " available formats
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+" color scheme
+colorscheme solarized
+
+" Detect file types
+autocmd BufRead,BufNewFile *httpd*.conf setfiletype apache "Apache config files
+autocmd BufRead,BufNewFile .htaccess    setfiletype apache "htaccess files
+autocmd BufRead,BufNewFile *inc         setfiletype php "PHP include files
+autocmd BufRead,BufNewFile *phtml       setfiletype php "Zend framework templates
+
+autocmd FileType python     set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
+
+autocmd FileType crontab    setlocal nobackup nowritebackup
+
+" Avoid typos
+noremap :W :w
+noremap :Q :q
+
+" Kill sounds
+set vb
+
+" Configure CtrlP
+let g:ctrlp_working_path_mode = 'r'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" PHP specials (next/previous variable)
+noremap L f$ 
+noremap H F$
+
+" php documentor
+inoremap <C-o> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-o> :call PhpDocSingle()<CR>
+vnoremap <C-o> :call PhpDocRange()<CR> 
+
+" Awesome autocomplete
+let g:ycm_min_num_of_chars_for_completion               = 2
+let g:ycm_auto_trigger                                  = 1
+let g:ycm_collect_identifiers_from_tags_files           = 1
+let g:ycm_autoclose_preview_window_after_completion     = 1
+let g:ycm_autoclose_preview_window_after_insertion      = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+
+" fix escape issue with YouCompleteMe & vim-autoclose (https://github.com/Valloric/YouCompleteMe/issues/9)
+let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+
+" slow multiple_cursors & YCM
+function! Multiple_cursors_before()
+    let g:ycm_auto_trigger = 0
+endfunction
+
+function! Multiple_cursors_after()
+    let g:ycm_auto_trigger = 1
+endfunction
+
+" Tagbar management
+nmap <leader>t :TagbarToggle<CR>
+
+" configure tagbar to not show variables
+let g:tagbar_type_php  = {
+    \ 'ctagstype' : 'php',
+    \ 'kinds'     : [
+        \ 'i:interfaces',
+        \ 'c:classes',
+        \ 'd:constant definitions',
+        \ 'f:functions',
+        \ 'j:javascript functions:1'
+    \ ]
+\ }
+
+" Quick file navigation
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Remove whitespace on close
 autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 " Yank 'till the end of the line
-nnoremap Y y$ 
- " Find merge conflict marker
+nnoremap Y y$
+
+" Find merge conflict marker
 map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 " Visual shifting (does not exit Visual mode)
@@ -180,103 +210,75 @@ let g:vdebug_keymap = {
     \    "step_out"       : "<Leader><Right>",
     \    "close"          : "q",
     \    "detach"         : "x",
-    \    "set_breakpoint" : "<Leader>p",
+    \    "sspellchcket_breakpoint" : "<Leader>p",
     \    "eval_visual"    : "<Leader>e"
-    \}
+\}
 
 let g:vdebug_options = {
     \    "break_on_open" : 0,
-    \}
-
-" Custom composer command
-let g:phpcomplete_index_composer_command = '/usr/local/bin/composer'
-
-
-" Disable Arrow keys in Escape mode
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" Disable Arrow keys in Insert mode
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
-" map tagbar
-nmap <leader>t :TagbarToggle<CR>
-
-" configure tagbar to not show variables
-let g:tagbar_type_php  = {
-    \ 'ctagstype' : 'php',
-    \ 'kinds'     : [
-        \ 'i:interfaces',
-        \ 'c:classes',
-        \ 'd:constant definitions',
-        \ 'f:functions',
-        \ 'j:javascript functions:1'
-    \ ]
-\ }
-
-" auto open tagbar
-autocmd VimEnter * nested :TagbarOpen
+\}
 
 " map undo tree
 nmap <leader>r :UndotreeToggle<cr> 
 
-" exclude list for the line numbers plugin
-let g:numbers_exclude = ['tagbar', 'undotree', 'nerdtree']
-
-" fix escape issue with YouCompleteMe & vim-autoclose (https://github.com/Valloric/YouCompleteMe/issues/9)
-let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
-
-" slow multiple_cursors & YCM
-function! Multiple_cursors_before()
-    let g:ycm_auto_trigger = 0
-endfunction
-
-function! Multiple_cursors_after()
-    let g:ycm_auto_trigger = 1
-endfunction
-
 " select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-let g:over_enable_auto_nohlsearch = 1
+" spellcheck toggle (on/off)
+nmap <silent> <leader>s :set spell!<CR>
 
+" Rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Eclim configuration
-let g:EclimCompletionMethod = 'omnifunc'
+" CTRL + hjkl to move between windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-" colors
-set background=dark
-colorscheme solarized
+" using tabs
+noremap tn :tabnew<cr>      " tn to open a new tab
+noremap tc :tabclose<cr>    " tc to close the current tab
 
-syntax on
-set title
-set nocompatible
-set number
-set backspace=start,indent,eol
-set smartindent
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=4
-set autochdir
-set incsearch
-set ignorecase
-set smartcase
-set ls=2
-set ruler
-set showtabline=2
-set formatoptions=qroct
-set showcmd
+" Better colors for EasyMotion
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
-" Highlight problematic whitespace
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" Use powerline fonts
+let g:airline_powerline_fonts = 1
+
+" run syntactic checks
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list            = 1
+let g:syntastic_check_on_open            = 1
+let g:syntastic_check_on_wq              = 0
+let g:syntastic_php_checkers             = ['php', 'phpcs']        " do not run phpmd
+let g:syntastic_php_phpcs_args           = '-s -n --standard=PSR2' " always check against PSR2
+
+" Add warnings to the status line
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Disable arrow keys - bad habit
+" in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+" php code fixer
+let g:php_cs_fixer_level    = "symfony"      " which level ?
+let g:php_cs_fixer_config   = "default"  " configuration
+let g:php_cs_fixer_php_path = "php"      " Path to PHP
+let g:php_cs_fixer_verbose  = 1          " Return the output of
+let g:php_cs_fixer_enable_default_mapping = 1       " <leader>pcf
