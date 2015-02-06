@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'joonty/vdebug'
 Bundle 'majutsushi/tagbar'
 Bundle 'stephpy/vim-php-cs-fixer'
+Bundle 'xolox/vim-easytags'
 
 " Snippets
 Bundle 'SirVer/ultisnips'

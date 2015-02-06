@@ -257,7 +257,6 @@ let g:airline_powerline_fonts = 1
 " run syntactic checks
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list            = 1
-let g:syntastic_check_on_open            = 1
 let g:syntastic_check_on_wq              = 0
 let g:syntastic_php_checkers             = ['php', 'phpcs']        " do not run phpmd
 let g:syntastic_php_phpcs_args           = '-s -n --standard=PSR2' " always check against PSR2
@@ -286,3 +285,18 @@ let g:php_cs_fixer_config   = "default"  " configuration
 let g:php_cs_fixer_php_path = "php"      " Path to PHP
 let g:php_cs_fixer_verbose  = 1          " Return the output of
 let g:php_cs_fixer_enable_default_mapping = 1       " <leader>pcf
+
+" easytags
+set tags=./.tags;
+
+let g:easytags_dynamic_files = 1
+let g:easytags_cmd           = '/usr/local/bin/ctags'
+let g:easytags_languages     = {
+\   'php': {
+\     'cmd': g:easytags_cmd,
+\       'args': ['--fields=+aimS'],
+\       'fileoutput_opt': '-f',
+\       'stdout_opt': '-f-',
+\       'recurse_flag': '-R'
+\   }
+\}
