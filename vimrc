@@ -89,6 +89,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
 
 autocmd FileType crontab    setlocal nobackup nowritebackup
 
@@ -108,6 +109,9 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 noremap L f$ 
 noremap H F$
 
+" PHP complete
+let g:phpcomplete_parse_docblock_comments = 1
+
 " php documentor
 inoremap <C-o> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-o> :call PhpDocSingle()<CR>
@@ -119,7 +123,7 @@ let g:ycm_auto_trigger                                  = 1
 let g:ycm_collect_identifiers_from_tags_files           = 1
 let g:ycm_autoclose_preview_window_after_completion     = 1
 let g:ycm_autoclose_preview_window_after_insertion      = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " fix escape issue with YouCompleteMe & vim-autoclose (https://github.com/Valloric/YouCompleteMe/issues/9)
 let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
@@ -140,11 +144,11 @@ nmap <leader>t :TagbarToggle<CR>
 let g:tagbar_type_php  = {
     \ 'ctagstype' : 'php',
     \ 'kinds'     : [
+        \ 'n:namespaces',
         \ 'i:interfaces',
         \ 'c:classes',
         \ 'd:constant definitions',
-        \ 'f:functions',
-        \ 'j:javascript functions:1'
+        \ 'f:functions'
     \ ]
 \ }
 
@@ -169,11 +173,11 @@ vnoremap > >gv
 " need sudo?
 cmap w!! w !sudo tee % >/dev/null
 
-nnoremap <silent> <leader>q gwip
-
 " Ultisnip config
-let g:UltiSnipsExpandTrigger      ="<C-l>"
-let g:UltiSnipsJumpForwardTrigger ="<C-l>"
+let g:UltiSnipsExpandTrigger       = "<C-l>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-z>"
+let g:UltiSnipsEditSplit           = "vertical"
 
 " reset the search
 nmap <silent> ,/ :nohlsearch<CR>

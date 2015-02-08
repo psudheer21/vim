@@ -17,11 +17,11 @@ Bundle 'joonty/vdebug'
 Bundle 'majutsushi/tagbar'
 Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'xolox/vim-easytags'
+Bundle 'shawncplus/phpcomplete.vim'
 
 " Snippets
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'motanelu/ZF-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Edit
 Bundle 'godlygeek/tabular'
