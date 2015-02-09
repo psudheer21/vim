@@ -22,6 +22,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'motanelu/php-snippets'
 
 " Edit
 Bundle 'godlygeek/tabular'
