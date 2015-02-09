@@ -270,19 +270,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Disable arrow keys - bad habit
-" in Escape mode
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" in Insert mode
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
 " php code fixer
 let g:php_cs_fixer_level    = "symfony"  " which level ?
 let g:php_cs_fixer_config   = "default"  " configuration
