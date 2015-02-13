@@ -291,3 +291,7 @@ let g:easytags_languages     = {
 \       'recurse_flag': '-R'
 \   }
 \}
+
+" yank ring
+let g:yankring_replace_n_pkey = '<C-y>'
+
