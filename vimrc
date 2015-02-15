@@ -294,4 +294,5 @@ let g:easytags_languages     = {
 
 " yank ring
 let g:yankring_replace_n_pkey = '<C-y>'
-
+let g:yankring_replace_n_nkey = '<C-u>'
+noremap <leader>y :call YRShow<cr>
