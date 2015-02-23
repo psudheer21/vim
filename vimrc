@@ -259,11 +259,12 @@ hi link EasyMotionShade  Comment
 let g:airline_powerline_fonts = 1
 
 " run syntactic checks
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list            = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list            = 0
 let g:syntastic_check_on_wq              = 0
 let g:syntastic_php_checkers             = ['php', 'phpcs']        " do not run phpmd
 let g:syntastic_php_phpcs_args           = '-s -n --standard=PSR2' " always check against PSR2
+
 
 " Add warnings to the status line
 set statusline+=%#warningmsg#
@@ -295,4 +296,5 @@ let g:easytags_languages     = {
 " yank ring
 let g:yankring_replace_n_pkey = '<C-y>'
 let g:yankring_replace_n_nkey = '<C-u>'
-noremap <leader>y :call YRShow<cr>
+let g:yankring_paste_using_g  = 0
+noremap <leader>y :call YRShow()<cr>
