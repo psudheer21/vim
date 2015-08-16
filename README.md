@@ -46,4 +46,11 @@ cd ~/vim/bundle/vimproc
 make
 ```
 
+### vim-instant-markdown
+To install [vim-instant-markdown](https://github.com/suan/vim-instant-markdown/), you need to do the following:
+You first need to have node.js with npm installed.
+
+- `[sudo] npm -g install instant-markdown-d`
+- If you're on Linux, the `xdg-utils` package needs to be installed (it is installed by default on Ubuntu).
+
 Enjoy! 

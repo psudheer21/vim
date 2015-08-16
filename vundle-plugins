@@ -7,6 +7,9 @@ Bundle 'tyok/nerdtree-ack'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 
+" C++
+Plugin 'vim-scripts/OmniCppComplete'
+
 " PHP
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/unite.vim'
@@ -44,3 +47,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'Keithbsmiley/gist.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
+Plugin 'suan/vim-instant-markdown'
+
+" Git
+Plugin 'airblade/vim-gitgutter'

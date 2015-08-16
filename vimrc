@@ -16,6 +16,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
+let g:instant_markdown_slow = 1
 source ~/.vim/vundle-plugins
 
 call vundle#end()
@@ -58,7 +59,6 @@ set tabstop=4                   " use 4 spaces for tabs
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set autochdir
 set incsearch
 set ignorecase
 set smartcase
@@ -105,17 +105,8 @@ let g:ctrlp_working_path_mode = 'r'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" PHP specials (next/previous variable)
-noremap L f$ 
-noremap H F$
-
 " PHP complete
 let g:phpcomplete_parse_docblock_comments = 1
-
-" php documentor
-inoremap <C-o> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-o> :call PhpDocSingle()<CR>
-vnoremap <C-o> :call PhpDocRange()<CR> 
 
 " Awesome autocomplete
 let g:ycm_min_num_of_chars_for_completion               = 2
@@ -139,6 +130,9 @@ endfunction
 
 " Tagbar management
 nmap <leader>t :TagbarToggle<CR>
+
+" NERDTree management
+nmap <leader>b :NERDTreeToggle<CR>
 
 " configure tagbar to not show variables
 let g:tagbar_type_php  = {
@@ -245,11 +239,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " using tabs
-noremap tn :tabnew<cr>      " tn to open a new tab
-noremap tc :tabclose<cr>    " tc to close the current tab
-noremap ¬ :tabnext<cr>      " ALT + l next tab
-noremap ˙ :tabprevious<cr>  " ALT + h previous tab
-noremap to :tabonly<cr>     " close all other tabs
+noremap t :tabnew<cr>      " tn to open a new tab
+noremap K :tabnext<cr>      " ALT + l next tab
+noremap J :tabprevious<cr>  " ALT + h previous tab
 
 " Better colors for EasyMotion
 hi link EasyMotionTarget ErrorMsg
@@ -282,6 +274,7 @@ let g:php_cs_fixer_enable_default_mapping = 1       " <leader>pcf
 set tags=./.tags;
 
 let g:easytags_dynamic_files = 1
+let g:easytags_async = 1
 let g:easytags_cmd           = '/usr/local/bin/ctags'
 let g:easytags_languages     = {
 \   'php': {
@@ -297,4 +290,21 @@ let g:easytags_languages     = {
 let g:yankring_replace_n_pkey = '<C-y>'
 let g:yankring_replace_n_nkey = '<C-u>'
 let g:yankring_paste_using_g  = 0
-noremap <leader>y :call YRShow()<cr>
+nnoremap <leader>y :YRShow<cr>
+
+" Newline auto indent
+function EnterOrIndentTag()
+    let line = getline(".")
+    let col = getpos(".")[2]
+    let before = line[col-2]
+    let after = line[col-1]
+    let opening = ["[", "{", "(", ">"]
+    let closing = ["]", "}", ")", "<"]
+
+    if index(opening, before) >= 0 && index(closing,after) >= 0
+        return "\<Enter>\<C-o>O"
+    endif
+    return "\<Enter>"
+endfunction
+
+inoremap <expr> <Enter> EnterOrIndentTag()
