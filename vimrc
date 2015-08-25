@@ -67,7 +67,7 @@ set ruler
 set showtabline=2
 set formatoptions=qroct
 set showcmd
-set clipboard=unnamed           " save to system's clipboard
+set clipboard=unnamedplus           " save to system's clipboard
 set mouse=a                     " allow mouse usage for all modes (a)
 set spelllang=en_us             " current language
 set cursorline                  " highlight the current line
