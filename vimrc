@@ -74,6 +74,8 @@ set cursorline                  " highlight the current line
 set fileformat=unix             " unix file format by default
 set fileformats=unix,dos,mac    " available formats
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set nowrap                      " Continue line outside of view
+set colorcolumn=80              " set ruler at 80
 
 " color scheme
 colorscheme solarized
@@ -239,9 +241,16 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " using tabs
-noremap t :tabnew<cr>      " tn to open a new tab
-noremap K :tabnext<cr>      " ALT + l next tab
-noremap J :tabprevious<cr>  " ALT + h previous tab
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnew<Space>
+nnoremap tm  :tabm<Space>
+nnoremap tc  :tabclose<CR>
+nnoremap <S-h> gT
+nnoremap <S-l> gt
 
 " Better colors for EasyMotion
 hi link EasyMotionTarget ErrorMsg
@@ -308,3 +317,5 @@ function EnterOrIndentTag()
 endfunction
 
 inoremap <expr> <Enter> EnterOrIndentTag()
+
+let g:minimap_highlight='Visual'

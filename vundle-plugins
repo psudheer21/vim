@@ -40,7 +40,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-repeat'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/YankRing.vim'
+" Bundle 'vim-scripts/YankRing.vim'
 
 " Misc
 Bundle 'xolox/vim-misc'
@@ -48,6 +48,7 @@ Bundle 'Keithbsmiley/gist.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'severin-lemaignan/vim-minimap'
 
 " Git
 Plugin 'airblade/vim-gitgutter'
