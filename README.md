@@ -24,7 +24,7 @@ Instalation is easy, just paste the following commands in the console:
 cd ~
 mv .vimrc .vimrc.bak
 mv .vim .vim.bak
-git clone https://github.com/Galbar/vim-configuration.git vim
+git clone https://github.com/thunderboltsid/vim-configuration.git vim
 git clone  https://github.com/gmarik/Vundle.vim vim/bundle/Vundle.vim
 ln -s ./vim .vim
 ln -s ./vim/vimrc .vimrc
