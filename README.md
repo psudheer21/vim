@@ -18,7 +18,7 @@ own "ultimate" configuration.
 For suggestions on how to improve it or cool modules, please hit me up at 
 hello@tudorbarbu.ninja.
 
-## Instalation
+## Installation
 Instalation is easy, just paste the following commands in the console:
 ```
 cd ~
