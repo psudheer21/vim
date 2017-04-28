@@ -1,13 +1,5 @@
-""
-" Custom .vimrc file
-" 
-" This is in the public domain, so feel free to use / change / redistribute it
-" You can check the complete repository at http://github.com/motanelu/GVim-configuration
-"
-" Author: Tudor Barbu <hello@tudorbarbu.ninja>
-" Blog: http://tudorbarbu.ninja
-" License: LGPL
-""
+let $PYTHONPATH=''
+let $PYTHONUSERBASE=''
 
 " Vundle
 set nocompatible
@@ -35,7 +27,7 @@ set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
 set nu                          " Line numbers on
 set showmatch                   " Show matching brackets/parenthesis
-set incsearch                   " Find as you type search
+" set incsearch                   " Find as you type search
 set hlsearch                    " Highlight search terms
 set winminheight=0              " Windows can be 0 line high
 set ignorecase                  " Case insensitive search
@@ -55,11 +47,12 @@ set completeopt-=preview
 set title                       " show window title
 set autoindent                  " autoindent when pressing Enter
 set background=dark             " use a dark scheme
-set tabstop=4                   " use 4 spaces for tabs
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2                   " use 2 spaces for tabs
+set shiftwidth=2
+set smarttab
+set softtabstop=2
 set expandtab
-set incsearch
+" set incsearch
 set ignorecase
 set smartcase
 set ls=2
@@ -69,14 +62,19 @@ set formatoptions=qroct
 set showcmd
 set mouse=a                     " allow mouse usage for all modes (a)
 set spelllang=en_us             " current language
-set cursorline                  " highlight the current line
+" set cursorline                  " highlight the current line
 set fileformat=unix             " unix file format by default
-set fileformats=unix,dos,mac    " available formats
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set nowrap                      " Continue line outside of view
+set textwidth=79
 set colorcolumn=80              " set ruler at 80
 
+set pastetoggle=<F2>
+set ttymouse=sgr
+
 " color scheme
+let g:solarized_termcolors=1
+let g:solarized_termtrans=1
 colorscheme solarized
 
 " Detect file types
@@ -119,6 +117,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " fix escape issue with YouCompleteMe & vim-autoclose (https://github.com/Valloric/YouCompleteMe/issues/9)
 let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " slow multiple_cursors & YCM
 function! Multiple_cursors_before()
@@ -130,10 +129,20 @@ function! Multiple_cursors_after()
 endfunction
 
 " Tagbar management
-nmap <leader>t :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_width=50
+let g:tagbar_indent=1
+let g:tagbar_sort = 0
+" autocmd VimEnter * nested :TagbarOpen
 
 " NERDTree management
-nmap <leader>b :NERDTreeToggle<CR>
+nmap <F5> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 35
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd vimenter * NERDTree
+" autocmd VimEnter * wincmd p
+let g:nerdtree_tabs_open_on_console_startup=2
+let g:nerdtree_tabs_smart_startup_focus=2
 
 " configure tagbar to not show variables
 let g:tagbar_type_php  = {
@@ -147,32 +156,19 @@ let g:tagbar_type_php  = {
     \ ]
 \ }
 
+" map undo tree
+nmap <F7> :UndotreeToggle<cr> 
+
 " Quick file navigation
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Remove whitespace on close
-autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-" Yank 'till the end of the line
-nnoremap Y y$
+autocmd FileType c,cpp,java autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 " Find merge conflict marker
 map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
-
-" Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
-
-" need sudo?
-cmap w!! w !sudo tee % >/dev/null
-
-" Ultisnip config
-let g:UltiSnipsExpandTrigger       = "<C-l>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-l>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-z>"
-let g:UltiSnipsEditSplit           = "vertical"
 
 " reset the search
 nmap <silent> ,/ :nohlsearch<CR>
@@ -200,27 +196,6 @@ vmap <Leader>a:  :Tabularize /:<CR>
 nmap <Leader>a:: :Tabularize /:\zs<CR>
 vmap <Leader>a:: :Tabularize /:\zs<CR>
 
-" Vdebug config
-" Key config ripped from http://thorpesystems.com/blog/debugging-php-in-vim/
-let g:vdebug_keymap = {
-    \    "run"            : "<Leader>'",
-    \    "run_to_cursor"  : "<Leader><Down>",
-    \    "step_over"      : "<Leader><Up>",
-    \    "step_into"      : "<Leader><Left>",
-    \    "step_out"       : "<Leader><Right>",
-    \    "close"          : "q",
-    \    "detach"         : "x",
-    \    "eval_visual"    : "<Leader>e",
-    \    "sspellchcket_breakpoint" : "<Leader>p"
-\}
-
-let g:vdebug_options = {
-    \    "break_on_open" : 0,
-\}
-
-" map undo tree
-nmap <leader>r :UndotreeToggle<cr> 
-
 " select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
@@ -233,72 +208,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" CTRL + hjkl to move between windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" using tabs
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnew<Space>
-nnoremap tm  :tabm<Space>
-nnoremap tc  :tabclose<CR>
-nnoremap <S-h> gT
-nnoremap <S-l> gt
-
-" Better colors for EasyMotion
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade  Comment
-
 " Use powerline fonts
 let g:airline_powerline_fonts = 1
-
-" run syntactic checks
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list            = 0
-let g:syntastic_check_on_wq              = 0
-let g:syntastic_php_checkers             = ['php', 'phpcs']        " do not run phpmd
-let g:syntastic_php_phpcs_args           = '-s -n --standard=PSR2' " always check against PSR2
-
-
-" Add warnings to the status line
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" php code fixer
-let g:php_cs_fixer_level    = "symfony"  " which level ?
-let g:php_cs_fixer_config   = "default"  " configuration
-let g:php_cs_fixer_php_path = "php"      " Path to PHP
-let g:php_cs_fixer_verbose  = 1          " Return the output of
-let g:php_cs_fixer_enable_default_mapping = 1       " <leader>pcf
-
-" easytags
-set tags=./.tags;
-
-let g:easytags_dynamic_files = 1
-let g:easytags_async = 1
-let g:easytags_cmd           = '/usr/local/bin/ctags'
-let g:easytags_languages     = {
-\   'php': {
-\     'cmd': g:easytags_cmd,
-\       'args': ['--fields=+aimS'],
-\       'fileoutput_opt': '-f',
-\       'stdout_opt': '-f-',
-\       'recurse_flag': '-R'
-\   }
-\}
-
-" yank ring
-let g:yankring_replace_n_pkey = '<C-y>'
-let g:yankring_replace_n_nkey = '<C-u>'
-let g:yankring_paste_using_g  = 0
-nnoremap <leader>y :YRShow<cr>
+let g:airline_detect_crypt=1
 
 " Newline auto indent
 function EnterOrIndentTag()
@@ -318,3 +230,35 @@ endfunction
 inoremap <expr> <Enter> EnterOrIndentTag()
 
 let g:minimap_highlight='Visual'
+
+set encoding=utf-8
+
+function! PropagatePasteBufferToOSX() range
+  '<,'>y
+  let @n=getreg('"')
+  call system('pbcopy-remote', @n)
+endfunction
+
+function! PopulatePasteBufferFromOSX()
+  let @+ = system('pbpaste-remote')
+  echo "done"
+endfunction
+
+map <leader>c :call PropagatePasteBufferToOSX()<cr>
+
+" Settings for vim-clang-format
+let g:clang_format#style_options = { "BasedOnStyle" : "Google",
+                                    \"ContinuationIndentWidth" : 2,
+                                    \"ConstructorInitializerIndentWidth" : 2,
+                                    \"ColumnLimit" : 79,
+                                    \"KeepEmptyLinesAtTheStartOfBlocks" : "true",
+                                    \"PointerAlignment" : "Right",
+                                    \"BinPackParameters" : "false",
+                                    \"ConstructorInitializerAllOnOneLineOrOnePerLine" : "true"}
+
+let g:clang_format#auto_format = 0
+"let g:clang_format#auto_format_on_insert_leave = 1
+let g:clang_format#detect_style_file = 1
+autocmd FileType c,cpp nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
+nmap <Leader>f :ClangFormatAutoToggle<CR>
