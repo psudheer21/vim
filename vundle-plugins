@@ -9,46 +9,47 @@ Bundle 'tacahiroy/ctrlp-funky'
 
 " C++
 Plugin 'vim-scripts/OmniCppComplete'
-
-" PHP
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/unite.vim'
-Bundle 'stephpy/vim-phpdoc'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'joonty/vdebug'
 Bundle 'majutsushi/tagbar'
-Bundle 'stephpy/vim-php-cs-fixer'
-Bundle 'xolox/vim-easytags'
-Bundle 'shawncplus/phpcomplete.vim'
-
-" Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'motanelu/php-snippets'
-
-" Edit
-Bundle 'godlygeek/tabular'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-surround'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tommcdo/vim-exchange'
-Bundle 'mbbill/undotree'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-repeat'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'tpope/vim-fugitive'
-" Bundle 'vim-scripts/YankRing.vim'
-
-" Misc
-Bundle 'xolox/vim-misc'
-Bundle 'Keithbsmiley/gist.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'bling/vim-airline'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'rhysd/vim-clang-format'
 
 " Git
 Plugin 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
+
+" Edit
+Bundle 'godlygeek/tabular'
+Bundle 'mbbill/undotree'
+Bundle 'Raimondi/delimitMate'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'bling/vim-airline'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'MarcWeber/vim-addon-mw-utils'
+" Bundle 'tomtom/tlib_vim'
+" Bundle 'tpope/vim-surround'
+" Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'tommcdo/vim-exchange'
+" Bundle 'tpope/vim-repeat'
+" Bundle 'vim-scripts/YankRing.vim'
+
+" Misc
+" Bundle 'xolox/vim-misc'
+" Bundle 'Keithbsmiley/gist.vim'
+" Plugin 'suan/vim-instant-markdown'
+" Plugin 'severin-lemaignan/vim-minimap'
+" Bundle 'scrooloose/syntastic'
+
+" Snippets
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'motanelu/php-snippets'
+
+" PHP
+" Bundle 'Shougo/vimproc'
+" Bundle 'Shougo/unite.vim'
+" Bundle 'stephpy/vim-phpdoc'
+" Bundle 'joonty/vdebug'
+" Bundle 'stephpy/vim-php-cs-fixer'
+" Bundle 'xolox/vim-easytags'
+" Bundle 'shawncplus/phpcomplete.vim'
